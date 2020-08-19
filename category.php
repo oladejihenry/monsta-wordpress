@@ -5,7 +5,7 @@
         <div class="section-header item-header desktop">
             <div class="title">
                 <h2>MonstaJamss
-                    <span>MUSIC</span>					
+                    <span><?php single_cat_title(); ?></span>					
                 </h2>
             </div>
         </div>

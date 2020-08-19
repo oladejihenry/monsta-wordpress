@@ -26,4 +26,8 @@ function monsta_init(){
     add_theme_support('custom-logo');
 }
 add_action('after_setup_theme', 'monsta_init');
+
+function meks_time_ago() {
+	return human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ).' '.__( 'ago' );
+}
 ?>
