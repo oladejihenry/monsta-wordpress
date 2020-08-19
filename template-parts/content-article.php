@@ -17,7 +17,7 @@
         <center><a href="https://chat.whatsapp.com/CTzBwGJE11O8A8TWC1cSnZ" style="color:#dc3d31;"><strong>Join Our Whatsapp Group (Stay Up To Date)</strong></a></center>
         <br>
         <div class="tag-inner tags">  
-        <i class="fa fa-tags" aria-hidden="true"></i> <span class="tag-label">Tags:  </span> <?php the_tags() ?>
+        <i class="fa fa-tags" aria-hidden="true"></i> <span class="tag-label"> </span> <?php the_tags() ?>
         </div>
         
     </div>
