@@ -23,6 +23,8 @@
 }
 .article-header .image img {
     width: 100%;
+    max-width: 625px;
+    max-height: 351px;
 }
 .box-list.small .story {
     width: 10%;

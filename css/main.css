@@ -397,6 +397,15 @@ audio, canvas, img, video {
     color: #838383;
     padding: 0 20px;
 }
+.article-header .author, .article-header .date a{
+    font-size: 14px;
+    color: #838383;
+    text-decoration:none;
+}
+.date a:hover{
+    color: #dc3d31;
+    text-decoration:none;
+}
 .article-body .body-copy {
     line-height: 24px;
     padding-bottom: 20px;
