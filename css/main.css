@@ -475,7 +475,31 @@ audio, canvas, img, video {
 .header .search-box .search-submit i {
     line-height: 40px;
 }
-
+.tag-inner{
+    text-align: left;
+    font-size:12px;
+    font-weight:400;
+    
+}
+.tag-inner i.fa-tags{
+    font-weight:900;
+    font-size:12px;
+}
+.tag-inner a{
+    padding-right: 20px;
+    padding-left: 20px;
+    text-decoration:none;
+    color: #000;
+}
+.tag-inner a:hover{
+    color: #dc3d31;
+}
+.tag-label span{
+    display: inline-block;
+    text-align: left;
+    font-size:12px;
+    font-weight:400; 
+}
 
 @media screen and (min-width: 992px){
 #cmn_wrap {
@@ -624,4 +648,7 @@ audio, canvas, img, video {
 }
 .fa-comment-o::before {
     content: "\f0e5";
+}
+.tag-inner.tags a:before {
+    content: '# ';
 }

@@ -16,8 +16,14 @@
                     <div class="logo">
                         <a href="/">
                             <br>
+                            <?php 
+                            if(function_exists('the_custom_logo')){
+                                $custom_logo_id = get_theme_mod('custom_logo');
+                                $logo = wp_get_attachment_image_src($custom_logo_id);
+                            }
+                            ?>
                             <img class="mobile" src="<?php echo get_template_directory_uri(); ?>/img/w-1.png" alt="MonstaJamss" style="margin-left: -83px;">
-                            <img class="desktop" src="<?php echo get_template_directory_uri(); ?>/img/b-1.png" alt="MonstaJamss">
+                            <img class="desktop" src="<?php echo $logo[0] ?>" alt="MonstaJamss">
                         </a>
                     </div>
                     <div class="social-counts desktop">

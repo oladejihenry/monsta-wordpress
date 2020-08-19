@@ -45,49 +45,22 @@
         </div> 
         <div class="section-header item-header desktop">
             <div class="title">
-                <h2>MonstaJamss
+                <h2><?php echo get_bloginfo('name'); ?>
                     <span>Now</span>					
                 </h2>
             </div>
         </div>
     </div>
     <div class="wire">
-        <a href="single.html" class="card single">
-            <span class="post-meta-information">
-                Music
-            </span> 
-            <img class="post-image rectangle" src="https://static.hiphopdx.com/2020/08/200813-R-Kelly-250x141.jpg"> 
-            <h3 class="title">Eminem - Rap God</h3>
-            <p class="excerpt">Best Rapper Alive Eminem Drops New Single Rap God</p>
-            <div class="post-meta"> 
-                <div class="post-meta-section comments">
-                </div>
-            </div>
-        </a>
-        <a href="{{ route('posts.show',$post->slug) }}" class="card single">
-            <span class="post-meta-information">
-                Music
-            </span> 
-            <img class="post-image rectangle" src="https://static.hiphopdx.com/2020/08/200813-R-Kelly-250x141.jpg"> 
-            <h3 class="title">Eminem - Rap God</h3>
-            <p class="excerpt">Best Rapper Alive Eminem Drops New Single Rap God</p>
-            <div class="post-meta"> 
-                <div class="post-meta-section comments">
-                </div>
-            </div>
-        </a>
-        <a href="{{ route('posts.show',$post->slug) }}" class="card single">
-            <span class="post-meta-information">
-                Music
-            </span> 
-            <img class="post-image rectangle" src="https://static.hiphopdx.com/2020/08/200813-R-Kelly-250x141.jpg"> 
-            <h3 class="title">Eminem - Rap God</h3>
-            <p class="excerpt">Best Rapper Alive Eminem Drops New Single Rap God</p>
-            <div class="post-meta"> 
-                <div class="post-meta-section comments">
-                </div>
-            </div>
-        </a>
+        <?php 
+            if( have_posts() ){
+                while( have_posts() ){
+                    the_post();
+                    get_template_part( 'template-parts/main', 'article' );
+                }
+            }
+        ?>
+        
         <div class="pagination">
             <!-- {{-- Previous Page Link --}} -->
                 <a href="{{ $paginator->previousPageUrl() }}" class="prev">
