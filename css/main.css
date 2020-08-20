@@ -488,7 +488,7 @@ audio, canvas, img, video {
     text-align: left;
     font-size:12px;
     font-weight:400;
-    
+    padding: 0 20px;
 }
 .tag-inner i.fa-tags{
     font-weight:900;
