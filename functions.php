@@ -1,9 +1,6 @@
 <?php
 // adding css files
 function monsta_styles(){
-    
-    
-    
     wp_enqueue_style('ma-style', get_template_directory_uri()."/css/he.css", array(), '1.0', 'all');
     wp_enqueue_style('main-style', get_template_directory_uri()."/css/main.css", array(), '1.0', 'all');
     wp_enqueue_style('po-style', get_template_directory_uri()."/css/po.css", array(), '1.0', 'all');
@@ -30,4 +27,5 @@ add_action('after_setup_theme', 'monsta_init');
 function meks_time_ago() {
 	return human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ).' '.__( 'ago' );
 }
+
 ?>

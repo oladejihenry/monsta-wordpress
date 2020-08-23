@@ -30,48 +30,106 @@
     <br>
     <div class="desktop">
         <div class="box-list small desktop">	
-            <div class="section-header item-header desktop">
-            <div class="title">
-                    <h2>More
-                        <span>Related Posts</span>
-                        on MonstaJams
-                        <span></span>
-                    </h2>
-                </div>
-            </div>
-            <div class="story">
-                <a href="{{ route('posts.show',$relate->slug) }}"><img src="https://static.hiphopdx.com/2020/08/200813-CJ-Wallace-150x150.jpg" alt="">
+            
+            
+       
+            <?php $orig_post = $post;
+global $post;
+$categories = get_the_category($post->ID);
+if ($categories) {
+$category_ids = array();
+foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+
+$args=array(
+'category__in' => $category_ids,
+'post__not_in' => array($post->ID),
+'posts_per_page'=> 4, // Number of related posts that will be shown.
+'ignore_sticky_posts'=>1
+);
+
+$my_query = new wp_query( $args );
+if( $my_query->have_posts() ) {
+echo '
+<div class="section-header item-header desktop">
+<div class="title">
+<h2>More
+    <span>Related Posts</span>
+    on MonstaJams
+    <span></span>
+</h2>
+</div>
+</div>';
+while( $my_query->have_posts() ) {
+$my_query->the_post();?>
+
+<div class="story">
+                <a href="<?php the_permalink() ?>"><img src="<?php the_post_thumbnail_url('thumbnail'); ?>">
                 </a>
-                <p class="title"><a href="{{ route('posts.show',$relate->slug) }}">Eminem - Rap God</a></p>
+                <p class="title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
             </div>
+<?
+}
+echo '';
+}
+}
+$post = $orig_post;
+wp_reset_query(); ?>
+            
         </div>
     </div>
     <div class="mobile">
         <div class="related-items">
-            <h3 class="trending-news-title">
-                Related
-                <span>Posts</span>
-            </h3>
-            <div class="trending-news-wrapper">
+        <?php $orig_post = $post;
+global $post;
+$categories = get_the_category($post->ID);
+if ($categories) {
+$category_ids = array();
+foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+
+$args=array(
+'category__in' => $category_ids,
+'post__not_in' => array($post->ID),
+'posts_per_page'=> 4, // Number of related posts that will be shown.
+'ignore_sticky_posts'=>1
+);
+$my_query = new wp_query( $args );
+if( $my_query->have_posts() ) {
+echo '
+<h3 class="trending-news-title">
+    Related
+    <span>Posts</span>
+</h3>';
+while( $my_query->have_posts() ) {
+$my_query->the_post();?>
+<div class="trending-news-wrapper">
                 <div class="trending">
                     <div class="trending-image">
-                        <a href="{{ route('posts.show',$relate->slug) }}">
-                            <img src="https://static.hiphopdx.com/2020/08/200813-CJ-Wallace-150x150.jpg" alt="">
+                        <a href="<?php the_permalink() ?>">
+                            <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" style="width:90px; height:90px;">
                         </a>
                     </div>
                     <div class="trending-title">
-                        <a href="{{ route('posts.show',$relate->slug) }}">Eminem - Rap God</a>
+                        <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                     </div>
                     <div class="meta-container">
                         <div class="inner-meta">
-                            <a href="{{ route('posts.show',$relate->slug) }}" class="listing-meta">
+                            <a href="<?php the_permalink() ?>" class="listing-meta">
                                 <i class="fa fa-clock-o"></i>
-                                <span>2 mins ago</span>
+                                <span><?php echo meks_time_ago(); ?></span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
+<?
+}
+echo '';
+}
+}
+$post = $orig_post;
+wp_reset_query(); ?>
+            
+            
         </div>
     </div>
 </div>

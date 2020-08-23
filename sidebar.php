@@ -19,12 +19,24 @@
             </div>
         </div>
         <ul>
-            <li>
-                <a href="{{ route('posts.show',$post->slug) }}">
+            <?php
+$post_by_category = new WP_Query( 'cat=4&posts_per_page=8' );
+if ($post_by_category->have_posts()) :
+?>
+<?php
+    while ($post_by_category->have_posts()) :
+        $post_by_category->the_post();
+        ?>
+        <li>
+                <a href="<?php the_permalink() ?>">
                 <div><i class="fa fa-headphones"></i></div>
-                <div><strong>Underworld - </strong>Eminem</div>
+                <div><?php the_title(); ?></div>
                 </a>
             </li>
+<?php
+endwhile;
+endif; 
+?>
         </ul>
         <a href="/category/music" class="uni-link">
             More Singles &nbsp;
@@ -42,18 +54,31 @@
         </div>
         <table>
             <tbody>
-                <tr>
-                    <td><a href="{{ route('posts.show',$post->slug) }}">
-                        <img src="https://static.hiphopdx.com/2020/08/15913946374530134-511-220x165.png" width="75" height="75">  
-                    </a></td>
-                    <td>
-                        <p class="title">
-                            <a href="{{ route('posts.show',$post->slug) }}">Rico Nasty</a>
-                        </p>
-                        <p class="excerpt">iPhone</p>
-                    </td>
-                    
-                </tr>
+            <?php
+$post_by_category = new WP_Query( 'cat=7&posts_per_page=8' );
+if ($post_by_category->have_posts()) :
+?>
+<?php
+    while ($post_by_category->have_posts()) :
+        $post_by_category->the_post();
+        ?>
+        <tr>
+            <td><a href="<?php the_permalink() ?>">
+                <img src="<?php the_post_thumbnail_url('thumbnail'); ?>"" width="75" height="75">  
+            </a></td>
+            <td>
+                <p class="title">
+                    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                </p>
+                <?php echo '<p class="excerpt">'. get_the_excerpt() .'</p>';?>
+            </td>
+            
+        </tr>
+<?php
+endwhile;
+endif; 
+?>
+                
             </tbody>
         </table>
         <a href="/category/video" class="uni-link">
@@ -62,29 +87,6 @@
         </a>
     </div>
     <br>
-    <div class="sidebar reviews">
-        <div class="section-header item-header desktop">
-            <div class="title">
-                <h1>Reviews 
-                    <span></span>
-                </h1>
-            </div>
-        </div>
-        <ul class="vidlist">
-            <li class="clearfix">
-                <a href="{{ route('posts.show',$post->slug) }}">
-                    <img src="https://static.hiphopdx.com/2020/07/Logic_No_Pressure_album_cover-165x165.jpeg" alt="">
-                </a>
-                <a href="{{ route('posts.show',$post->slug) }}">
-                    <img src="https://static.hiphopdx.com/2020/07/109268521_3763077460376160_2370091438898317920_n-165x165.jpg" alt="">
-                </a>
-            </li>
-        </ul>
-        <a href="/category/reviews" class="uni-link">
-            More Reviews &nbsp;
-            <i class="fa fa-angle-right"></i>
-        </a>
-    </div>
     <div class="desktop side-ad">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Ads Resp 1 -->
