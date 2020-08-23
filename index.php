@@ -20,10 +20,12 @@
             }
         ?>
         
-        <div class="pagination">
-        <?php posts_nav_link(' — ', __('&laquo; Newer Posts'), __('Older Posts &raquo;')); ?>
+        
+    </div>
+    
+</div>
+<div class="pagination">
+        <?php posts_nav_link(' — ', __('&laquo; Next'), __('Previous &raquo;')); ?>
            
         </div>
-    </div>
-</div>
 <?php get_footer(); ?>

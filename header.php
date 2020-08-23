@@ -51,7 +51,7 @@
                 <nav class="main-nav-desktop desktop">
                     <ul>
                         <li class="{{ '/' == request()->path() ? 'active' : ''}}"><a href="/">Home</a></li>
-                        <li class="{{ 'category/music' == request()->path() ? 'active' : ''}}"><a href="category.html">Music</a></li>
+                        <li class=""><a href="/category/music">Music</a></li>
                         <li class="{{ 'category/news' == request()->path() ? 'active' : ''}}"><a href="/category/news">News</a></li>
                         <li class="{{ 'category/video' == request()->path() ? 'active' : ''}}"><a href="/category/video">Video</a></li>
                         <li class="{{ 'category/reviews' == request()->path() ? 'active' : ''}}"><a href="/category/reviews">Reviews</a></li>

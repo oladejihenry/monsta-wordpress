@@ -404,6 +404,7 @@ box-shadow: -1px 4px 5px -2px
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-left:20px;
 }
 .pagination .next {
     float: right;
