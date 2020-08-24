@@ -20,16 +20,8 @@
             }
         ?>
     </div>
-    <div class="pagination">
-        <!-- {{-- Previous Page Link --}} -->
-            <a href="{{ $paginator->previousPageUrl() }}" class="prev">
-            <i class="fa fa-angle-left"></i>
-            Prev
-            </a>
-        <!-- {{-- Next Page Link --}} -->
-            <a href="{{ $paginator->nextPageUrl() }}" class="next">Next
-            <i class="fa fa-angle-right"></i>
-            </a>
-    </div>
+</div>
+<div class="pagination">
+    <?php posts_nav_link(' — ', __('&laquo; Next'), __('Previous &raquo;')); ?>  
 </div>
 <?php get_footer(); ?>

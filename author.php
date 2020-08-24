@@ -18,7 +18,9 @@
                 }
             }
         ?>
-       <?php #echo $real->links('cpag.custom'); ?>
+       <div class="pagination">
+            <?php posts_nav_link(' — ', __('&laquo; Next'), __('Previous &raquo;')); ?>  
+    </div>
     </div>
 </div>
 

@@ -41,8 +41,9 @@
                         </a>
                     </div>
                 </div>
-                <form class="search-box show" action="{{ route('search') }}" method="GET">
-                    <input class="search-field" type="text" name="query" value="" placeholder="Search">
+                
+                <form class="search-box show" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <input class="search-field" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="Search">
                     <button class="search-submit" type="submit">
                         <i class="fa fa-search"></i>
                     </button>  
@@ -52,19 +53,19 @@
                     <ul>
                         <li class="{{ '/' == request()->path() ? 'active' : ''}}"><a href="/">Home</a></li>
                         <li class=""><a href="/category/music">Music</a></li>
-                        <li class="{{ 'category/news' == request()->path() ? 'active' : ''}}"><a href="/category/news">News</a></li>
-                        <li class="{{ 'category/video' == request()->path() ? 'active' : ''}}"><a href="/category/video">Video</a></li>
-                        <li class="{{ 'category/reviews' == request()->path() ? 'active' : ''}}"><a href="/category/reviews">Reviews</a></li>
-                        <li class="{{ 'category/releases' == request()->path() ? 'active' : ''}}"><a href="/category/releases">Releases</a></li>
+                        <li class=""><a href="/category/news">News</a></li>
+                        <li class=""><a href="/category/video">Video</a></li>
+                        <li class=""><a href="/category/reviews">Reviews</a></li>
+                        <li class=""><a href="/category/releases">Releases</a></li>
                     </ul>
                 </nav>
                 <nav class="secondary-nav mobile">
                     <ul>
-                        <li class="{{ '/' == request()->path() ? 'active' : ''}}"><a href="/">Home</a></li>
-                        <li class="{{ 'category/music' == request()->path() ? 'active' : ''}}"><a href="/category/music">Music</a></li>
-                        <li class="{{ 'category/video' == request()->path() ? 'active' : ''}}"><a href="/category/video">Video</a></li>
-                        <li class="{{ 'category/news' == request()->path() ? 'active' : ''}}"><a href="/category/news">News</a></li>
-                        <li class="{{ 'category/reviews' == request()->path() ? 'active' : ''}}"><a href="/category/reviews">Reviews</a></li>
+                        <li class=""><a href="/">Home</a></li>
+                        <li class=""><a href="/category/music">Music</a></li>
+                        <li class=""><a href="/category/video">Video</a></li>
+                        <li class=""><a href="/category/news">News</a></li>
+                        <li class=""><a href="/category/reviews">Reviews</a></li>
                     </ul>
                 </nav>
             </header>

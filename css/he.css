@@ -123,11 +123,34 @@ body, h1, h2, h3, h4, h5, h6, ol, p, ul {
     display: block;
     margin-bottom: 1px;
 }
+.page-404 {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+.page-404 h1 {
+    font-family: Oswald,Arial,Helvetica,sans-serif;
+    font-size: 6.85rem;
+    line-height: 7rem;
+}
+.page-404 .body-copy a {
+    color: #dc3d31;
+}
+.page-404 img {
+    width: 100%;
+}
 @media screen and (min-width: 992px){
 .desktop{
     display:block;
 }
 .content {
     margin-top: 0;
+}
+.page-404 .body-copy {
+    display: inline-block;
+    width: 400px;
+}
+.page-404 img {
+    width: 400px;
 }
 }
