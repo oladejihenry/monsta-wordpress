@@ -1,16 +1,5 @@
 <div class="sidebars desktop">
-    <div class="desktop side-ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Ads 2 -->
-        <ins class="adsbygoogle"
-            style="display:inline-block;width:300px;height:600px"
-            data-ad-client="ca-pub-8897835908934169"
-            data-ad-slot="3619596871"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-    <div class="sidebar tracks">
+	<div class="sidebar tracks">
         <div class="section-header item-header desktop">
             <div class="title">
                 <h1>Hip Hop
@@ -20,7 +9,7 @@
         </div>
         <ul>
             <?php
-$post_by_category = new WP_Query( 'cat=4&posts_per_page=8' );
+$post_by_category = new WP_Query( 'cat=2&posts_per_page=8' );
 if ($post_by_category->have_posts()) :
 ?>
 <?php
@@ -43,10 +32,24 @@ endif;
             <i class="fa fa-angle-right"></i>
         </a>
     </div>
+	<br>
+    <div class="desktop side-ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Ads 2 -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:300px;height:600px"
+            data-ad-client="ca-pub-8897835908934169"
+            data-ad-slot="3619596871"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
     <br>
     <div class="sidebar videos">
         <div class="section-header item-header desktop">
             <div class="title">
+				<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
                 <h1>Hip Hop
                     <span>Videos</span>
                 </h1>
@@ -55,7 +58,7 @@ endif;
         <table>
             <tbody>
             <?php
-$post_by_category = new WP_Query( 'cat=7&posts_per_page=8' );
+$post_by_category = new WP_Query( 'cat=3&posts_per_page=8' );
 if ($post_by_category->have_posts()) :
 ?>
 <?php
@@ -64,7 +67,8 @@ if ($post_by_category->have_posts()) :
         ?>
         <tr>
             <td><a href="<?php the_permalink() ?>">
-                <img src="<?php the_post_thumbnail_url('thumbnail'); ?>"" width="75" height="75">  
+				
+                <img src="<?php the_post_thumbnail_url('sidebar-thumb'); ?>" alt="<?php echo $alt; ?>">  
             </a></td>
             <td>
                 <p class="title">

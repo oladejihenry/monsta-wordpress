@@ -7,7 +7,8 @@
             by <?php echo the_author_posts_link(); ?> 
         </div>
         <div class="image large">
-            <img src="<?php the_post_thumbnail_url('large-size'); ?>">
+			<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
+            <img src="<?php the_post_thumbnail_url('large-size'); ?>" alt="<?php echo $alt; ?>">
         </div>
         <div class="article-advertisement  article-body article-editorials">
             <div class="body-copy first-letter-dropcap js-entry-text">
@@ -63,11 +64,12 @@ while( $my_query->have_posts() ) {
 $my_query->the_post();?>
 
 <div class="story">
-                <a href="<?php the_permalink() ?>"><img src="<?php the_post_thumbnail_url('thumbnail'); ?>">
+	<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
+                <a href="<?php the_permalink() ?>"><img src="<?php the_post_thumbnail_url('singlepost-thumb'); ?>" alt="<?php echo $alt; ?>">
                 </a>
                 <p class="title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
             </div>
-<?
+<?php
 }
 echo '';
 }
@@ -102,10 +104,11 @@ echo '
 while( $my_query->have_posts() ) {
 $my_query->the_post();?>
 <div class="trending-news-wrapper">
+	<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
                 <div class="trending">
                     <div class="trending-image">
                         <a href="<?php the_permalink() ?>">
-                            <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" style="width:90px; height:90px;">
+                            <img src="<?php the_post_thumbnail_url('sidemore-thumb'); ?>" alt="<?php echo $alt; ?>">
                         </a>
                     </div>
                     <div class="trending-title">
@@ -121,7 +124,7 @@ $my_query->the_post();?>
                     </div>
                 </div>
             </div>
-<?
+<?php
 }
 echo '';
 }
@@ -149,8 +152,8 @@ wp_reset_query(); ?>
         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
         var disqus_config = function () {
-        this.page.url = '{{Request::url()}}';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 1; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = '<?php echo get_permalink(); ?>';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '<?php echo get_permalink(); ?>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
