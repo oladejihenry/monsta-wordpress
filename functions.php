@@ -27,5 +27,10 @@ add_action('after_setup_theme', 'monsta_init');
 function meks_time_ago() {
 	return human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ).' '.__( 'ago' );
 }
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'homepage-thumb', 625, 351);
+add_image_size( 'singlepost-thumb', 150, 150, true);
+add_image_size( 'sidebar-thumb', 75, 75, true);
+add_image_size( 'sidemore-thumb', 90, 90, true);
 
 ?>

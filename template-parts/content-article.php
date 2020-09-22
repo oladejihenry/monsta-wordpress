@@ -4,7 +4,7 @@
         </div>
         <div class="date"> Published on: <?php the_date('M d, Y, h:i A'); ?> | <?php echo get_the_category_list(', ') ?> </div>
         <div class="author">
-            by <?php echo the_author_posts_link(); ?> 
+            By <?php echo the_author_posts_link(); ?> 
         </div>
         <div class="image large">
 			<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
@@ -12,13 +12,13 @@
         </div>
         <div class="article-advertisement  article-body article-editorials">
             <div class="body-copy first-letter-dropcap js-entry-text">
-                <p><?php 
+                <?php 
                         $content = get_the_content();
                         $content = preg_replace("/<img[^>]+\>/i", " ", $content);          
                         $content = apply_filters('the_content', $content);
                         $content = str_replace(']]>', ']]>', $content);
                         echo $content;
-                    ?></p>
+                    ?>
             </div>
         </div>
         <center><a href="https://chat.whatsapp.com/CTzBwGJE11O8A8TWC1cSnZ" style="color:#dc3d31;"><strong>Join Our Whatsapp Group (Stay Up To Date)</strong></a></center>
