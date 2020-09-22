@@ -7,9 +7,18 @@
             By <?php echo the_author_posts_link(); ?> 
         </div>
         <div class="image large">
-			<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
-            <img src="<?php the_post_thumbnail_url('large-size'); ?>" alt="<?php echo $alt; ?>">
-        </div>
+			<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); 
+				  $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); 
+			 ?>
+			 <img src="<?php the_post_thumbnail_url('large-size'); ?>" 
+				 <?php 
+				  // only include the alt attrib if there is an alt returned 
+				  // (or you could set a default value, or whatever else you might want to do)
+				  if ($alt): ?>
+					 alt="<?php echo $alt; ?>" 
+				 <?php endif; ?>
+			 />
+		</div>
         <div class="article-advertisement  article-body article-editorials">
             <div class="body-copy first-letter-dropcap js-entry-text">
                 <?php 
@@ -64,8 +73,10 @@ while( $my_query->have_posts() ) {
 $my_query->the_post();?>
 
 <div class="story">
-	<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
-                <a href="<?php the_permalink() ?>"><img src="<?php the_post_thumbnail_url('singlepost-thumb'); ?>" alt="<?php echo $alt; ?>">
+	<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); 
+          $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); 
+     ?>
+                <a href="<?php the_permalink() ?>"><img src="<?php the_post_thumbnail_url('singlepost-thumb'); ?>" <?php if ($alt): ?> alt="<?php echo $alt; ?>" <?php endif; ?> />
                 </a>
                 <p class="title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
             </div>
@@ -104,11 +115,13 @@ echo '
 while( $my_query->have_posts() ) {
 $my_query->the_post();?>
 <div class="trending-news-wrapper">
-	<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if(count($alt)) ?>
+	<?php $thumb_id = get_post_thumbnail_id(get_the_ID()); 
+          $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); 
+     ?>
                 <div class="trending">
                     <div class="trending-image">
                         <a href="<?php the_permalink() ?>">
-                            <img src="<?php the_post_thumbnail_url('sidemore-thumb'); ?>" alt="<?php echo $alt; ?>">
+                            <img src="<?php the_post_thumbnail_url('sidemore-thumb'); ?>" <?php if ($alt): ?> alt="<?php echo $alt; ?>" <?php endif; ?> />
                         </a>
                     </div>
                     <div class="trending-title">
